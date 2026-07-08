@@ -39,11 +39,9 @@ body:
   validations:
     required: true
 - type: input
-  id: deadline
+  id: requested_by
   attributes:
-    label: Maximum grant-by date
-    description: The latest acceptable date to have access granted by. Use YYYY-MM-DD,
-      or write "None" if there's no hard deadline.
-    placeholder: e.g. 2026-08-15
+    label: Requested by / Stakeholder team
+    description: Name and team of the person who is requesting access.
   validations:
     required: true
