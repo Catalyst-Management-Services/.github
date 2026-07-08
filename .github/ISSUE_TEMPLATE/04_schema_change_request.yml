@@ -3,19 +3,6 @@ description: Request a change to an existing table, dbt model, or database schem
 title: "[Schema Change]: "
 labels: []
 body:
-  - type: dropdown
-    id: environment
-    attributes:
-      label: Environment / Project
-      options:
-        - PATCH
-        - FMIS
-        - CLV
-        - Vrutti
-        - Andhra-Pipeline (tn-pipeline)
-    validations:
-      required: true
-
   - type: input
     id: affected_object
     attributes:

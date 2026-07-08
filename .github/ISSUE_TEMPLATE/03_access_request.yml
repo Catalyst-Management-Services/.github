@@ -12,21 +12,6 @@ body:
       required: true
 
   - type: dropdown
-    id: environment
-    attributes:
-      label: Environment / System
-      options:
-        - PATCH
-        - FMIS
-        - CLV
-        - Vrutti
-        - VPN (CX-Gateway)
-        - Power BI / ODBC
-        - Other
-    validations:
-      required: true
-
-  - type: dropdown
     id: access_type
     attributes:
       label: Type of access

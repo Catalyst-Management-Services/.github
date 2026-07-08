@@ -8,21 +8,6 @@ body:
       value: |
         Thanks for filing this! The more detail you give here, the faster this gets picked up and closed — please avoid one-line requests.
 
-  - type: dropdown
-    id: environment
-    attributes:
-      label: Environment / Project
-      description: Which environment or project does this relate to?
-      options:
-        - PATCH
-        - FMIS
-        - CLV
-        - Vrutti
-        - Andhra-Pipeline (tn-pipeline)
-        - Other / Not sure
-    validations:
-      required: true
-
   - type: textarea
     id: description
     attributes:
