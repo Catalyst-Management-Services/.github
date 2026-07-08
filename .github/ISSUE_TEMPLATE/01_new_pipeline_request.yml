@@ -1,0 +1,101 @@
+name: "🔧 New Pipeline / Data Request"
+description: Request a new data pipeline, dataset, table, or report to be built by the DE team.
+title: "[Pipeline Request]: "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for filing this! The more detail you give here, the faster this gets picked up and closed — please avoid one-line requests.
+
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Environment / Project
+      description: Which environment or project does this relate to?
+      options:
+        - PATCH
+        - FMIS
+        - CLV
+        - Vrutti
+        - Andhra-Pipeline (tn-pipeline)
+        - Other / Not sure
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What do you need?
+      description: Describe the data, pipeline, or report in plain language — no jargon required.
+      placeholder: "e.g. We need a daily-refreshed table showing customer churn by region, sourced from the CLV database."
+    validations:
+      required: true
+
+  - type: input
+    id: source_systems
+    attributes:
+      label: Source system(s)
+      description: Where does the underlying data live? (DB name, API, file drop, etc.)
+      placeholder: "e.g. clv_new PostgreSQL DB, ie_api"
+    validations:
+      required: false
+
+  - type: textarea
+    id: expected_output
+    attributes:
+      label: Expected output
+      description: What is the actual deliverable? Table name, Power BI dashboard, CSV export, API endpoint, etc.
+      placeholder: "e.g. A Power BI dashboard connected to a new `analytics.churn_by_region` table."
+    validations:
+      required: true
+
+  - type: textarea
+    id: business_context
+    attributes:
+      label: Business context — why is this needed?
+      description: Helps us prioritize correctly without follow-up questions.
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance criteria — what does "done" look like?
+      description: Be specific. This is what whoever picks up the task will use to know when to close it.
+      placeholder: |
+        - [ ] Table `analytics.churn_by_region` exists and refreshes daily
+        - [ ] Power BI dashboard shows churn % by region, filterable by month
+        - [ ] Numbers reconcile with source system for last 3 months
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: This maps directly to your P0–P3 labels.
+      options:
+        - P0 (Critical)
+        - P1 (High)
+        - P2 (Normal)
+        - P3 (Low)
+    validations:
+      required: true
+
+  - type: input
+    id: deadline
+    attributes:
+      label: Maximum delivery date
+      description: The latest acceptable date for this to be delivered. Use YYYY-MM-DD, or write "None" if there's no hard deadline.
+      placeholder: "e.g. 2026-08-15"
+    validations:
+      required: true
+
+  - type: input
+    id: requested_by
+    attributes:
+      label: Requested by / Stakeholder team
+      placeholder: "e.g. Finance team — Kannapiran"
+    validations:
+      required: true

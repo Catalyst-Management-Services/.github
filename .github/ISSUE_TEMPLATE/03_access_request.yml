@@ -1,0 +1,80 @@
+name: "🔑 Access Request"
+description: Request access to a database, dashboard, VPN, or environment.
+title: "[Access]: "
+labels: []
+body:
+  - type: input
+    id: requester
+    attributes:
+      label: Who needs access?
+      description: Name and team of the person who needs it.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Environment / System
+      options:
+        - PATCH
+        - FMIS
+        - CLV
+        - Vrutti
+        - VPN (CX-Gateway)
+        - Power BI / ODBC
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: access_type
+    attributes:
+      label: Type of access
+      options:
+        - Read-only (viewer role)
+        - Read/write (loader role)
+        - Admin
+        - VPN tunnel access
+        - Not sure — please advise
+    validations:
+      required: true
+
+  - type: textarea
+    id: justification
+    attributes:
+      label: Business justification
+      description: Why is this access needed? Required for audit/security review.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: duration
+    attributes:
+      label: Duration
+      options:
+        - Permanent / ongoing role
+        - Temporary — specify end date in justification
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: Maps directly to your P0–P3 labels.
+      options:
+        - P0 (Critical) — blocking work right now
+        - P1 (High)
+        - P2 (Normal)
+        - P3 (Low)
+    validations:
+      required: true
+
+  - type: input
+    id: deadline
+    attributes:
+      label: Maximum grant-by date
+      description: The latest acceptable date to have access granted by. Use YYYY-MM-DD, or write "None" if there's no hard deadline.
+      placeholder: "e.g. 2026-08-15"
+    validations:
+      required: true

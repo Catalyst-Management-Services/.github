@@ -1,0 +1,77 @@
+name: "🧱 Schema / Model Change Request"
+description: Request a change to an existing table, dbt model, or database schema.
+title: "[Schema Change]: "
+labels: []
+body:
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Environment / Project
+      options:
+        - PATCH
+        - FMIS
+        - CLV
+        - Vrutti
+        - Andhra-Pipeline (tn-pipeline)
+    validations:
+      required: true
+
+  - type: input
+    id: affected_object
+    attributes:
+      label: Affected table / model / DB
+      placeholder: "e.g. static.andhra_boundaries, clv_new.customer_summary"
+    validations:
+      required: true
+
+  - type: textarea
+    id: change_description
+    attributes:
+      label: What change is needed?
+      placeholder: "e.g. Add a new column `region_code` derived from postal_code."
+    validations:
+      required: true
+
+  - type: textarea
+    id: downstream_impact
+    attributes:
+      label: Known downstream consumers
+      description: Any dashboards, reports, or other pipelines that read from this object? Helps us avoid breaking things.
+    validations:
+      required: false
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance criteria
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: Maps directly to your P0–P3 labels.
+      options:
+        - P0 (Critical)
+        - P1 (High)
+        - P2 (Normal)
+        - P3 (Low)
+    validations:
+      required: true
+
+  - type: input
+    id: deadline
+    attributes:
+      label: Maximum delivery date
+      description: The latest acceptable date for this change to be delivered. Use YYYY-MM-DD, or write "None" if there's no hard deadline.
+      placeholder: "e.g. 2026-08-15"
+    validations:
+      required: true
+
+  - type: input
+    id: requested_by
+    attributes:
+      label: Requested by / Stakeholder team
+    validations:
+      required: true

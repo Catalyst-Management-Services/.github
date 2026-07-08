@@ -1,0 +1,74 @@
+name: "🐛 Bug / Data Issue"
+description: Report incorrect data, a broken pipeline, a failed job, or unexpected behavior.
+title: "[Bug]: "
+labels: []
+body:
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Environment / Project
+      options:
+        - PATCH
+        - FMIS
+        - CLV
+        - Vrutti
+        - Andhra-Pipeline (tn-pipeline)
+        - Other / Not sure
+    validations:
+      required: true
+
+  - type: textarea
+    id: what_happened
+    attributes:
+      label: What's wrong?
+      description: Describe what you saw and what you expected instead.
+      placeholder: "e.g. The clv_viewer dashboard is showing April numbers even though it's supposed to refresh daily."
+    validations:
+      required: true
+
+  - type: textarea
+    id: where
+    attributes:
+      label: Where did you see this?
+      description: Table, dashboard name/link, report, pipeline run, etc.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: Maps directly to your P0–P3 labels.
+      options:
+        - P0 (Critical) — Production down / data actively wrong and in use
+        - P1 (High) — Broken but has a workaround
+        - P2 (Normal) — Minor / cosmetic
+        - P3 (Low) — Cosmetic, no rush
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: What does "fixed" look like?
+      placeholder: |
+        - [ ] Dashboard reflects data refreshed within last 24h
+        - [ ] Root cause documented in comments
+    validations:
+      required: true
+
+  - type: input
+    id: deadline
+    attributes:
+      label: Maximum resolution date
+      description: The latest acceptable date for this to be fixed. Use YYYY-MM-DD, or write "None" if there's no hard deadline.
+      placeholder: "e.g. 2026-08-15"
+    validations:
+      required: true
+
+  - type: input
+    id: requested_by
+    attributes:
+      label: Reported by / Stakeholder team
+    validations:
+      required: true
