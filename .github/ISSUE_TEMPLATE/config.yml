@@ -1,5 +1,5 @@
 blank_issues_enabled: false
 contact_links:
   - name: Urgent / Production Down
-    url: https://your-gchat-space-link-here
+    url: https://chat.google.com/room/AAQA8WKNbkQ?cls=7
     about: For P0 production incidents only — still file an issue right after using the Bug/Data Issue template.
